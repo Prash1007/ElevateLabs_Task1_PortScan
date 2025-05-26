@@ -1,0 +1,21 @@
+🧪 Wireshark Analysis
+
+I used Wireshark to observe network traffic during my Nmap TCP SYN scan.
+
+🎯 Key Observations:
+- My system (`192.168.76.8`) sent **SYN** packets to every IP in `192.168.76.0/24`.
+- Devices with open ports responded with **SYN-ACK**:
+  - `192.168.76.122:3306` → MySQL service confirmed open
+  - `192.168.76.184:53` → DNS service confirmed open
+- Devices with closed ports responded with **RST** packets or didn't respond at all (filtered).
+  
+📸 Screenshot/Packet Sample:
+- Packet 1: `SYN` from `192.168.76.8` to `192.168.76.122:3306`
+- Packet 2: `SYN-ACK` from `192.168.76.122:3306` back to my machine
+- Packet 3: `RST` response from closed port (example shown in file)
+
+📁 Capture File:
+The Wireshark capture (`wiresharkResult.pcapng`) is included in the repository for reference.
+
+---
+
